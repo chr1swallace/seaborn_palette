@@ -1,0 +1,50 @@
+---
+title: "intro"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{intro}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+I really like the colour choice in the [seaborn plotting library for python](https://github.com/mwaskom/seaborn) but I use ggplot2, so I created ggplot2 palettes with those colours. I copied the colour choice directly, so thank you to [Michael Waskom](https://github.com/mwaskom) for creating them with an open license.
+
+Using them is simple.
+
+Install from github if necessary
+
+
+```{r, eval = FALSE}
+install.packages("remotes")
+remotes::install_github("chr1swallace/seaborn_pal")
+```
+
+Then use in place of other scale_fill / scale_colour functions for discrete aesthetics (ie factors).
+
+```{r}
+library(ggplot2)
+library(seaborn)
+ggplot(data.frame(x=1:5,y=1:5,fill=factor(1:5)), aes(x=x,y=y,fill=fill)) +
+geom_tile()
+
+ggplot(data.frame(x=1:5,y=1:5,fill=factor(1:5)), aes(x=x,y=y,fill=fill)) +
+geom_tile() +
+scale_fill_seaborn()
+
+ggplot(data.frame(x=1:5,y=1:5,fill=factor(1:5)), aes(x=x,y=y,fill=fill)) +
+geom_tile() +
+scale_fill_seaborn(palette="dark6",direction=-1)
+```
+
+The full range of colours is
+```{r}
+show_seaborn()
+```
+
