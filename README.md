@@ -7,7 +7,6 @@ These are the colours
 ![](./palettes.png)
 
 
-
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/chr1swallace/seaborn_palette.svg?branch=master)](https://travis-ci.org/chr1swallace/seaborn_palette)
 <!-- badges: end -->
